@@ -1,0 +1,54 @@
+Neste trabalho, o objetivo principal consistiu em desenvolver uma aplicação utilizando a linguagem C e o protocolo MQTT. Esta aplicação tinha como função estabelecer uma conexão com um broker MQTT e transmitir
+mensagens por meio dele. Para isso, optamos por utilizar o broker Mosquitto em um ambiente Windows. Abaixo estão detalhadas as etapas de construção do programa:
+*Ambiente de Desenvolvimento e Compilação:
+•
+Escolhemos o ambiente Windows e a IDE Visual Studio Code para o desenvolvimento.
+•
+Utilizamos o Prompt de Comando e a ferramenta MinGW para compilar o código-fonte e as bibliotecas necessárias.
+*Configuração do Broker MQTT:
+•
+Para iniciar um ambiente MQTT, foi essencial baixar e instalar o broker Mosquitto, um software de código aberto. Este broker pode ser obtido no seguinte site: https://mosquitto.org/download/.
+
+*Inclusão da Biblioteca MQTT:
+•
+Após a instalação do Mosquitto, foi necessário fazer o download de uma biblioteca MQTT que nos permitisse trabalhar com o protocolo MQTT no código.
+•
+As bibliotecas compiladas em 32 bits e 64 bits estão disponíveis nos seguintes links:
+•
+Biblioteca MQTT 32 bits: https://github.com/eclipse/paho.mqtt.c/releases/download/v1.3.12/eclipse-paho-mqtt-c-win32-1.3.12.zip
+
+•
+Biblioteca MQTT 64 bits:
+https://github.com/eclipse/paho.mqtt.c/releases/download/v1.3.12/eclipse-paho-mqtt-c-win32-1.3.12.zip https://github.com/eclipse/paho.mqtt.c/releases/download/v1.3.12/eclipse-paho-mqtt-c-win64-
+
+
+*Desenvolvimento do Programa:
+•
+Com a biblioteca MQTT baixada e incluída no código-fonte, começamos o desenvolvimento.
+•
+Nosso programa estabelece uma conexão com um broker MQTT local, hospedado em "localhost" na porta 1883, e permite que o usuário publique mensagens em um tópico MQTT de sua escolha.
+•
+Para isso, incluímos as bibliotecas necessárias, como "<stdio.h>", "<stdlib.h>", "<string.h>", ""MQTTAsync.h"", e ""MQTTClient.h"", além de configurar a localização para "pt_BR.UTF-8".
+•
+Definimos constantes, como o endereço do broker MQTT (ADDRESS), o ID do cliente (CLIENTID) e o nível de qualidade de serviço (QoS).
+*Funcionamento Principal:
+•
+No "main", inicializamos uma instância do cliente MQTT (variável "client") e configuramos as opções de conexão MQTT, como o intervalo de keep-alive e a limpeza de sessão.
+•
+Em seguida, tentamos conectar-nos ao broker MQTT. Se a conexão falhar, exibimos uma mensagem de erro e encerramos o programa.
+•
+Solicitamos ao usuário que digite o tópico MQTT que deseja criar e o número de mensagens que deseja enviar para esse tópico.
+•
+Em um loop, permitimos que o usuário insira uma mensagem, que é então publicada no tópico MQTT especificado usando a função "MQTTClient_publishMessage".
+•
+Aguardamos a conclusão da publicação da mensagem usando a função "MQTTClient_waitForCompletion".
+•
+Após a publicação de todas as mensagens, desconectamos-nos do broker MQTT e destruímos a instância do cliente MQTT.
+
+*Encerramento do Programa:
+•
+O programa encerra com um código de retorno 0 (indicando sucesso) se todas as operações ocorrerem conforme o esperado.
+
+    O trabalho do projeto está publicado em um repositório público do
+Github para consulta. Abaixo segue o link:
+https://github.com/rhanielfarias/projeto-integrador-IIA-MQTT
